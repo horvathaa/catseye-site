@@ -10,7 +10,7 @@ import '../App.css'
 
 const features = [
     {
-        name: 'Keep Track of Information',
+        name: 'Keep Track of Code-Related Information',
         description:
             'Keep track of your questions, bugs, and tasks by annotating the code you care about.',
         icon: QuestionMarkCircleIcon,

@@ -2,26 +2,44 @@
 
 import './App.css'
 
-import { Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import Hero from './components/hero'
+import Hero, { Navigation } from './components/hero'
 import FeatureList from './components/FeatureList'
 import GetStarted from './components/getStarted'
-
-const navigation = [
-    { name: 'Documentation', href: '#' },
-    { name: 'Get Started', href: '#' },
-]
+import Documentation from './components/documentation'
+import * as React from 'react'
 
 // https://tailwindcss.com/docs/customizing-colors
 
 function App() {
+    const [viewing, _setViewing] = React.useState('home')
+
+    const setViewing = (newViewing) => {
+        if (newViewing === 'home-getStarted') {
+            const div = document.getElementById('getStarted')
+            console.log('div?', div)
+            div?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+                inline: 'center',
+            })
+            _setViewing('home')
+            return
+        }
+        _setViewing(newViewing)
+    }
+
     return (
         <>
-            <Hero />
-            <FeatureList />
-            <GetStarted />
+            <Navigation setViewing={setViewing} />
+            {viewing === 'home' ? (
+                <>
+                    <Hero setViewing={setViewing} />
+                    <FeatureList />
+                    <GetStarted />
+                </>
+            ) : (
+                <Documentation />
+            )}
         </>
     )
 }
