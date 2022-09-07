@@ -11,8 +11,8 @@ const adamiteAccountLink = (
 const catseyeDownloadLink = (
     <a
         className="text-green-500 hover:text-green-400 hover:underline"
-        href="./catseye.vsix"
-        download="catseye.vsix"
+        // href="./catseye.vsix" -- would be better to host locally but too big rn sigh
+        href="https://drive.google.com/file/d/1LWNAByCSimZSbs0P976K-Ri8LhuRGJLH/view?usp=sharing"
     >
         here
     </a>
