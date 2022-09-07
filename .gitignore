@@ -13,6 +13,8 @@
 **/dist/**
 ./dist
 
+*.vsix
+
 # misc
 .DS_Store
 .env.local

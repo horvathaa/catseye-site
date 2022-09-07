@@ -1,10 +1,8 @@
 import {
-    BoltIcon,
     ArrowLeftIcon,
     ChatBubbleBottomCenterTextIcon,
     QuestionMarkCircleIcon,
     RectangleGroupIcon,
-    ScaleIcon,
 } from '@heroicons/react/24/outline'
 import '../App.css'
 
