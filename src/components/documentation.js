@@ -3,32 +3,104 @@ import '../App.css'
 const firstAnnotation = [
     {
         name: 'Open Your Code and Catseye',
-        description:
-            'If you do not already have a file open, open a code file or project folder. \nClick File then “Open File” or “Open Folder”. \nNext, open Catseye - you can do this either by using the Command Palette or by using a keyboard shortcut. \nTo open Catseye with the keyboard shortcut, press Ctrl/Cmd+Shift+A. \nTo open with the Command Palette, use the keyboard shortcut Ctrl/Cmd + Shift + P or click “View” on the top bar, then “Command Palette”. In the Command Palette, click "Catseye: Launch Catseye".\n Note that Catseye works like any other pane in Visual Studio Code -- this means you can drag, resize, open, and close the pane as you wish.',
+        description: (
+            <ul className="list-disc list-inside m-2">
+                <li>
+                    If you do not already have a file open, open a code file or
+                    project folder by clicking "File" then "Open File" or "Open
+                    Folder".
+                </li>
+                <li>
+                    Next, open Catseye - you can do this either by using the
+                    Command Palette or by using a keyboard shortcut.
+                </li>
+                <ul className="list-disc list-inside ml-4">
+                    <li>
+                        To open Catseye with the keyboard shortcut, press
+                        Ctrl/Cmd+Shift+A.
+                    </li>
+                    <li>
+                        To open with the Command Palette, use the keyboard
+                        shortcut Ctrl/Cmd + Shift + P or click “View” on the top
+                        bar, then “Command Palette”. In the Command Palette,
+                        click "Catseye: Launch Catseye".
+                    </li>
+                </ul>
+                <li>
+                    Note that Catseye works like any other pane in Visual Studio
+                    Code -- this means you can drag, resize, open, and close the
+                    pane as you wish.
+                </li>
+            </ul>
+        ),
+
+        // 'If you do not already have a file open, open a code file or project folder. \nClick File then “Open File” or “Open Folder”. \nNext, open Catseye - you can do this either by using the Command Palette or by using a keyboard shortcut. \nTo open Catseye with the keyboard shortcut, press Ctrl/Cmd+Shift+A. \nTo open with the Command Palette, use the keyboard shortcut Ctrl/Cmd + Shift + P or click “View” on the top bar, then “Command Palette”. In the Command Palette, click "Catseye: Launch Catseye".\n Note that Catseye works like any other pane in Visual Studio Code -- this means you can drag, resize, open, and close the pane as you wish.',
         image: './catseye-open.png',
         imageAlt:
             'VS Code with two panes open -- code in the left pane and Catseye in the right pane',
     },
     {
         name: 'Select the Code You Want to Annotate',
-        description:
-            'Select the code you would like to annotate then, in the right-click menu, select "Catseye: Create Annotation".\n You can also use the keyboard shortcut "Ctrl/Cmd+Alt+S" to make an annotation.',
+        description: (
+            <ul className="list-disc list-inside m-2">
+                <li>
+                    Select the code you would like to annotate then, in the
+                    right-click menu, select "Catseye: Create Annotation".
+                </li>
+                <li>
+                    You can also use the keyboard shortcut "Ctrl/Cmd+Alt+S" to
+                    make an annotation.
+                </li>
+            </ul>
+        ),
+        // 'Select the code you would like to annotate then, in the right-click menu, select "Catseye: Create Annotation".\n You can also use the keyboard shortcut "Ctrl/Cmd+Alt+S" to make an annotation.',
         image: './catseye-right-click.png',
         imageAlt:
             'JavaScript code is selected and a context menu is open above the code, with the cursor hovering over the menu option "Catseye: Create Annotation".',
     },
     {
         name: 'Write Your Annotation',
-        description:
-            'The Catseye pane should update with the code you selected and a text box where you can add your annotation.\n When posting, you can also choose whether or not to share your annotation with your teammates, and (optionally) label whether this annotation is a question, task, issue, or proposal and whether this annotation should be pinned. \n You can also add an additional code snippet (or code "anchor") to the annotation by clicking the anchor button.',
+        description: (
+            <ul className="list-disc list-inside m-2">
+                <li>
+                    The Catseye pane should update with the code you selected
+                    and a text box where you can add your annotation.
+                </li>
+                <li>
+                    When posting, you can also choose whether or not to share
+                    your annotation with your teammates, and (optionally) label
+                    whether this annotation is a question, task, issue, or
+                    proposal and whether this annotation should be pinned.
+                </li>
+                <li>
+                    You can also add an additional code snippet (or code
+                    "anchor") to the annotation by clicking the anchor button.
+                </li>
+            </ul>
+        ),
+        // 'The Catseye pane should update with the code you selected and a text box where you can add your annotation.\n When posting, you can also choose whether or not to share your annotation with your teammates, and (optionally) label whether this annotation is a question, task, issue, or proposal and whether this annotation should be pinned. \n You can also add an additional code snippet (or code "anchor") to the annotation by clicking the anchor button.',
         image: './catseye-new-annotation.png',
         imageAlt:
             'A code snippet, some labels, and a text box are shown with the user having added the text "Considering renaming this function" in the text box.',
     },
     {
         name: 'Ta-da!',
-        description:
-            'The Catseye pane should update with your new annotation -- it will initially appear collapsed and clicking on the annotation will expand it, with the expanded version shown in the screenshot. \n In the code editor, your annotated code will have a light gray highlight around it and hovering over the highlight will show your annotation text.',
+        description: (
+            <ul className="list-disc list-inside m-2">
+                <li>
+                    The Catseye pane should update with your new annotation --
+                    it will initially appear collapsed and clicking on the
+                    annotation will expand it, with the expanded version shown
+                    in the screenshot.
+                </li>
+                <li>
+                    In the code editor, your annotated code will have a light
+                    gray highlight around it and hovering over the highlight
+                    will show your annotation text.
+                </li>
+            </ul>
+        ),
+        // 'The Catseye pane should update with your new annotation -- it will initially appear collapsed and clicking on the annotation will expand it, with the expanded version shown in the screenshot. \n In the code editor, your annotated code will have a light gray highlight around it and hovering over the highlight will show your annotation text.',
         image: './catseye-published-annotation.png',
         imageAlt:
             'VS Code with two panes open -- code in the left pane and Catseye in the right pane with the newly-created annotation open and visible.',
@@ -72,9 +144,9 @@ function DocumentationSnippet({ title, steps }) {
                                         style={{
                                             whiteSpace: 'pre-wrap',
                                         }}
-                                        className="mt-2 ml-16 font-sans text-base text-gray-500 mt-1 text-base text-gray-900 sm:col-span-2 sm:mt-0"
+                                        className="mt-2 ml-16 text-left font-sans text-base text-gray-500 mt-1 text-base text-gray-900 sm:col-span-2 sm:mt-0"
                                     >
-                                        <p className="text-lg font-bold leading-6 text-gray-900">
+                                        <p className="text-lg text-center font-bold leading-6 text-gray-900">
                                             {feature.name}
                                         </p>
                                         {feature.description}

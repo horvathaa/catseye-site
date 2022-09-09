@@ -3,11 +3,11 @@ import '../App.css'
 import { Popover } from '@headlessui/react'
 
 const navigation = [
-    { name: 'Documentation', href: 'documentation' },
-    { name: 'Get Started', href: 'home-getStarted' },
+    { name: 'Documentation', value: 'documentation', href: 'documentation' },
+    { name: 'Get Started', value: 'home', href: 'home-getStarted' },
 ]
 
-export function Navigation({ setViewing }) {
+export function Navigation({ setViewing, viewing }) {
     return (
         <Popover>
             <div className="relative px-4 pt-6 sm:px-6 lg:px-8">
@@ -27,15 +27,21 @@ export function Navigation({ setViewing }) {
                         </div>
                     </div>
                     <div className="hidden md:ml-10 md:block md:space-x-8 md:pr-4">
-                        {navigation.map((item) => (
-                            <button
-                                onClick={() => setViewing(item.href)}
-                                key={item.name}
-                                className="font-medium text-gray-500 hover:text-gray-900"
-                            >
-                                {item.name}
-                            </button>
-                        ))}
+                        {navigation.map((item) => {
+                            const chosenTextWeight =
+                                item.value === viewing
+                                    ? 'text-gray-800'
+                                    : 'text-gray-500'
+                            return (
+                                <button
+                                    onClick={() => setViewing(item.href)}
+                                    key={item.name}
+                                    className={`font-medium ${chosenTextWeight} hover:text-gray-900`}
+                                >
+                                    {item.name}
+                                </button>
+                            )
+                        })}
                     </div>
                 </nav>
             </div>

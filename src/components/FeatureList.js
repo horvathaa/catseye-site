@@ -16,7 +16,7 @@ const features = [
     {
         name: 'Navigate Your Code Easily',
         description:
-            "Catseye's annotation anchors can be used as bookmarks for the parts of your code you want to go to.",
+            "Catseye's annotation code anchors can be used as bookmarks for the parts of your code you want to go to.",
         icon: ArrowLeftIcon,
     },
     {

@@ -6,6 +6,7 @@ import Hero, { Navigation } from './components/hero'
 import FeatureList from './components/FeatureList'
 import GetStarted from './components/getStarted'
 import Documentation from './components/documentation'
+import Footer from './components/footer'
 import * as React from 'react'
 
 // https://tailwindcss.com/docs/customizing-colors
@@ -16,7 +17,6 @@ function App() {
     const setViewing = (newViewing) => {
         if (newViewing === 'home-getStarted') {
             const div = document.getElementById('getStarted')
-            console.log('div?', div)
             div?.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start',
@@ -30,7 +30,7 @@ function App() {
 
     return (
         <>
-            <Navigation setViewing={setViewing} />
+            <Navigation setViewing={setViewing} viewing={viewing} />
             {viewing === 'home' ? (
                 <>
                     <Hero setViewing={setViewing} />
@@ -40,6 +40,7 @@ function App() {
             ) : (
                 <Documentation />
             )}
+            <Footer />
         </>
     )
 }
