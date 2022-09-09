@@ -4,7 +4,7 @@ export default function Footer() {
             <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
                 2022{' '}
                 <a
-                    href="www.amberhorvath.com/"
+                    href="http://www.amberhorvath.com/"
                     target={'_blank'}
                     rel="noreferrer"
                     class="hover:underline"
