@@ -13,6 +13,7 @@ import * as React from 'react'
 
 function App() {
     const [viewing, _setViewing] = React.useState('home')
+    const [scrollTo, setScrollTo] = React.useState(false)
 
     const setViewing = (newViewing) => {
         if (newViewing === 'home-getStarted') {
@@ -23,6 +24,10 @@ function App() {
                 inline: 'center',
             })
             _setViewing('home')
+            return
+        } else if (newViewing === 'documentation-makeYourFirstAnnotation') {
+            _setViewing('documentation')
+            setScrollTo(true)
             return
         }
         _setViewing(newViewing)
@@ -35,10 +40,10 @@ function App() {
                 <>
                     <Hero setViewing={setViewing} />
                     <FeatureList />
-                    <GetStarted />
+                    <GetStarted setViewing={setViewing} />
                 </>
             ) : (
-                <Documentation />
+                <Documentation scrollTo={scrollTo} setScrollTo={setScrollTo} />
             )}
             <Footer />
         </>

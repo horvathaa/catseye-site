@@ -1,3 +1,4 @@
+import React from 'react'
 import '../App.css'
 
 const firstAnnotation = [
@@ -107,13 +108,16 @@ const firstAnnotation = [
     },
 ]
 
-function DocumentationSnippet({ title, steps }) {
+function DocumentationSnippet({ title, steps, id }) {
     return (
         <div className="lg:text-center">
-            <h2 className="mt-2 text-3xl font-bold leading-8 tracking-tight text-lime-700 sm:text-4xl">
+            <h2
+                id={id}
+                className="mt-2 font-bold leading-8 tracking-tight text-lime-600 sm:text-4xl lg:text-2xl"
+            >
                 {title}
             </h2>
-            <div className="mt-10">
+            <div className="mt-2">
                 <dl
                     className="rounded-md"
                     // className="space-y-10 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 md:space-y-0"
@@ -168,51 +172,52 @@ const annotationDeepDiveImage = {
 
 const annotationDeepDiveList = [
     {
-        number: '1',
+        number: <span class="dot content">1</span>,
+        //'1',
         description:
             "The original author of the annotations's name and profile picture, along with the time at which the annotation was originally created, and when it was last edited. Clicking on the username will open the user's GitHub page.",
     },
     {
-        number: '2',
+        number: <span class="dot content">2</span>,
         description:
             'Operations a user can perform on an annotation -- this includes (from left to right) adding a new code anchor to the annotation, pinning the annotation, resolving the annotation, and deleting the annotation. You can add a new anchor to your annotation by selecting some code, then clicking the anchor button. A pinned annotation will ignore all filters such that it is always accessible, and its code anchor(s) can be navigated to using a keyboard shortcut or using the Catseye context menu. Resolving an annotation is like resolving a Google Doc comment, in that it will remove the annotation but be archived. Deleting an annotation removes the annotation.',
     },
     {
-        number: '3',
+        number: <span class="dot content">3</span>,
         description:
             'The annotation\'s first code anchor. The top of the code anchor shows where the anchor point is located -- in this case, the anchor is in the "space-invaders.js" file, on line 497, and was made at 14:50 on September 7th. The annotated code is shown below, with the text in bold being what the user actually annotated (in this case, "function preDrawImage()") and the lighter green lines show some of the surrounding code. Clicking on the code anchor will navigate to that particular line(s) of code. Code anchors are updated on every keystroke, so if the user is actively editing, the anchor will reflect those changes.',
     },
     {
-        number: '4',
+        number: <span class="dot content">4</span>,
         description:
             'Each anchor is versioned, meaning we capture a version of each anchor at every Git commit. These prior versions can be viewed by clicking the dots below the anchor, like a photo carousel.',
     },
     {
-        number: '5',
+        number: <span class="dot content">5</span>,
         description: 'A second anchor attached to this annotation.',
     },
     {
-        number: '6',
+        number: <span class="dot content">6</span>,
         description:
             'The different, optional labels that can be assigned to an annotation. This annotation is labeled as a "proposal".',
     },
     {
-        number: '7',
+        number: <span class="dot content">7</span>,
         description:
             'The edit button for the annotation -- only the original author of an annotation may edit it.',
     },
     {
-        number: '8',
+        number: <span class="dot content">8</span>,
         description:
             'The annotation text body -- in this case, the user proposed renaming "preDrawImages" to something else.',
     },
     {
-        number: '9',
+        number: <span class="dot content">9</span>,
         description:
             'A reply to the original annotation by another user -- in this case, "cat" suggested a new name for the function and added an anchor pointing to where the function is invoked.',
     },
     {
-        number: '10',
+        number: <span class="dot content">10</span>,
         description:
             'The reply field -- the original author is replying to "cat" here. ',
     },
@@ -221,13 +226,13 @@ const annotationDeepDiveList = [
 export function DeepDive({ steps, image, title }) {
     return (
         <div className="lg:text-center">
-            <h2 className="mt-2 text-3xl font-bold leading-8 tracking-tight text-lime-700 sm:text-4xl">
+            <h2 className="mt-2 font-bold leading-8 tracking-tight text-lime-600 sm:text-4xl lg:text-2xl">
                 {title}
             </h2>
-            <div className="mt-10 m-2 px-4 py-5 flex flex-col justify-items-center items-center">
+            <div className="mt-2 m-2 px-4 py-5 flex flex-col justify-items-center items-center">
                 <img
                     src={image.src}
-                    className="h-1/2 w-1/2 rounded-md mb-10"
+                    className="sm:h-full sm:w-full lg:h-1/2 lg:w-1/2 rounded-md mb-10"
                     aria-hidden="true"
                     alt={image.alt}
                 />
@@ -257,7 +262,7 @@ export function DeepDive({ steps, image, title }) {
                                             whiteSpace: 'pre-wrap',
                                             textAlign: 'left',
                                         }}
-                                        className="mt-2 ml-16 font-sans text-base text-gray-500 mt-1 text-base text-gray-900 sm:col-span-2 sm:mt-0 text-align"
+                                        className="mt-2 ml-4 font-sans text-base text-gray-500 mt-1 text-base text-gray-900 sm:col-span-2 sm:mt-0 text-align"
                                     >
                                         {/* <p className="text-lg font-bold leading-6 text-gray-900">
                                             {feature.name}
@@ -274,7 +279,20 @@ export function DeepDive({ steps, image, title }) {
     )
 }
 
-export default function Documentation() {
+export default function Documentation({ scrollTo, setScrollTo }) {
+    React.useEffect(() => {
+        if (scrollTo) {
+            const div = document.getElementById('makeYourFirstAnnotation')
+            console.log('div', div)
+            div?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+                inline: 'center',
+            })
+            setScrollTo(false)
+        }
+    }, [scrollTo, setScrollTo])
+
     return (
         <div className="relative overflow-hidden bg-white">
             <div className="mx-auto max-w-7xl">
@@ -304,6 +322,7 @@ export default function Documentation() {
 
                         <DocumentationSnippet
                             title={'Making Your First Annotation'}
+                            id={'makeYourFirstAnnotation'}
                             steps={firstAnnotation}
                         />
                         <DeepDive
