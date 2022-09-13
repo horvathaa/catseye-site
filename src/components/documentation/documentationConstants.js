@@ -1,7 +1,4 @@
-import React from 'react'
-import '../App.css'
-
-const firstAnnotation = [
+export const firstAnnotation = [
     {
         name: 'Open Your Code and Catseye',
         description: (
@@ -108,69 +105,12 @@ const firstAnnotation = [
     },
 ]
 
-function DocumentationSnippet({ title, steps, id }) {
-    return (
-        <div className="lg:text-center border-t-2 mt-4">
-            <h2
-                id={id}
-                className="mt-4 mb-4 font-bold leading-8 tracking-tight text-lime-600 sm:text-4xl lg:text-2xl"
-            >
-                {title}
-            </h2>
-            <div className={'mt-2 ' + id}>
-                <dl
-                    className="rounded-md"
-                    // className="space-y-10 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 md:space-y-0"
-                >
-                    {steps.map((feature, i) => {
-                        const grayOrWhite =
-                            i % 2 === 0 ? 'bg-gray-50' : 'bg-white'
-                        return (
-                            <div
-                                key={feature.name}
-                                className={
-                                    grayOrWhite +
-                                    ' relative px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-2 sm:px-6 rounded-md'
-                                }
-                            >
-                                <dt>
-                                    <div className="flex h-full w-full items-center justify-center rounded-md text-white">
-                                        <img
-                                            src={feature.image}
-                                            className="h-full w-full rounded-md"
-                                            aria-hidden="true"
-                                            alt={feature.imageAlt}
-                                        />
-                                    </div>
-                                </dt>
-                                <dt>
-                                    <pre
-                                        style={{
-                                            whiteSpace: 'pre-wrap',
-                                        }}
-                                        className="mt-2 ml-16 text-left font-sans text-base text-gray-500 mt-1 text-base text-gray-900 sm:col-span-2 sm:mt-0"
-                                    >
-                                        <p className="text-lg text-center font-bold leading-6 text-gray-900">
-                                            {feature.name}
-                                        </p>
-                                        {feature.description}
-                                    </pre>
-                                </dt>
-                            </div>
-                        )
-                    })}
-                </dl>
-            </div>
-        </div>
-    )
-}
-
-const annotationDeepDiveImage = {
+export const annotationDeepDiveImage = {
     src: './catseye-detailed-anno-v2.png',
     alt: 'An annotation with two code anchors, text saying "consider renaming this function", and a reply from a collaborator saying "I think we should call it wipeCanvase since that is what the code is actually doing -- see second anchor".',
 }
 
-const annotationDeepDiveList = [
+export const annotationDeepDiveList = [
     {
         number: <span class="dot content">1</span>,
         key: "The original author of the annotations's name and profile picture",
@@ -441,218 +381,34 @@ const annotationDeepDiveList = [
     },
 ]
 
-export function DeepDive({ steps, image, title, id }) {
-    return (
-        <div className="lg:text-center lg:text-center border-t-2 mt-4">
-            <h2
-                id={id}
-                className="mt-4 font-bold leading-8 tracking-tight text-lime-600 sm:text-4xl lg:text-2xl"
-            >
-                {title}
-            </h2>
-            <div
-                className={
-                    'mt-2 m-2 px-4 py-5 flex flex-col justify-items-center items-center ' +
-                    id
-                }
-            >
-                <img
-                    src={image.src}
-                    className="sm:h-full sm:w-full lg:h-1/2 lg:w-1/2 rounded-md mb-10"
-                    aria-hidden="true"
-                    alt={image.alt}
-                />
-                <dl
-                    className="rounded-md flex flex-col justify-items-center items-center"
-                    // className="space-y-10 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 md:space-y-0"
-                >
-                    {steps.map((feature, i) => {
-                        const grayOrWhite =
-                            i % 2 === 0 ? 'bg-gray-50' : 'bg-white'
-                        return (
-                            <div
-                                key={'annotation-deep-dive-' + feature.key}
-                                className={
-                                    grayOrWhite +
-                                    ' relative h-auto w-3/4 flex px-4 py-5 sm:gap-2 sm:px-6 rounded-md'
-                                }
-                            >
-                                <dt>
-                                    <h2 className="flex text-xl h-full w-full items-center justify-center rounded-md text-gray-900">
-                                        {feature.number}
-                                    </h2>
-                                </dt>
-                                <dt>
-                                    <pre
-                                        style={{
-                                            whiteSpace: 'pre-wrap',
-                                            textAlign: 'left',
-                                        }}
-                                        className="mt-2 ml-4 font-sans text-base text-gray-500 mt-1 text-base text-gray-900 sm:col-span-2 sm:mt-0 text-align"
-                                    >
-                                        {/* <p className="text-lg font-bold leading-6 text-gray-900">
-                                            {feature.name}
-                                        </p> */}
-                                        {feature.description}
-                                    </pre>
-                                </dt>
-                            </div>
-                        )
-                    })}
-                </dl>
+export const sidebarDeepDiveList = [
+    {
+        number: <span class="dot content">1</span>,
+        description: (
+            <div>
+                <i className="font-medium">The search bar</i>. You can search
+                across your annotation's text body, the filename and file path,
+                and the code anchor content. Only annotations that match the
+                search query will show up in the annotation list.
             </div>
-        </div>
-    )
-}
-
-const sectionIds = [
-    { id: 'makeYourFirstAnnotation', title: 'Making Your First Annotation' },
-    { id: 'whatIsAnAnnotation', title: 'What is an Annotation?' },
+        ),
+        key: 'The search bar',
+    },
+    {
+        number: <span class="dot content">2</span>,
+        description: (
+            <div>
+                <i className="font-medium">The Catseye menu</i>. From this
+                dropdown menu, you can export your annotations into a JSON file
+                called "output.json", view this documentation, and see what
+                version of Catseye you are running.
+            </div>
+        ),
+        key: 'The Catseye menu',
+    },
 ]
 
-export default function Documentation({ scrollTo, setScrollTo }) {
-    const [navInView, setNavInView] = React.useState(new Map())
-
-    const updateNavInView = React.useCallback((pos) => {
-        let newViewports = new Map()
-        sectionIds.forEach((sec) => {
-            newViewports.set(sec.id, getViewportInRange(sec.id, pos))
-        })
-        return newViewports
-    }, [])
-
-    const handleScroll = React.useCallback(() => {
-        setNavInView(updateNavInView(window.scrollY))
-    }, [setNavInView, updateNavInView])
-
-    React.useEffect(() => {
-        window.addEventListener('scroll', handleScroll)
-        initViewports()
-        return () => {
-            window.removeEventListener('scroll', handleScroll)
-        }
-    }, [handleScroll])
-
-    const initViewports = () => {
-        let newViewports = new Map()
-        sectionIds.forEach((sec) => {
-            newViewports.set(sec.id, sec.id === 'makeYourFirstAnnotation')
-        })
-        setNavInView(newViewports)
-    }
-
-    const getViewportInRange = (id, pos) => {
-        const el = document.querySelector('.' + id)
-        const rect = el.getBoundingClientRect()
-        return rect.bottom >= 0 && rect.top <= pos
-    }
-
-    React.useEffect(() => {
-        if (scrollTo) {
-            const div = document.getElementById('makeYourFirstAnnotation')
-            div?.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start',
-                inline: 'center',
-            })
-            setScrollTo(false)
-        }
-    }, [scrollTo, setScrollTo])
-
-    return (
-        <div className="relative overflow-hidden bg-white">
-            <div className="mx-auto max-w-screen-2xl">
-                <SideNavigationBar navInView={navInView} />
-                <div className="relative z-10 pl-[11.5rem] pb-8 sm:pb-16 md:pb-20 lg:w-full lg:pb-28 xl:pb-32">
-                    <main className="mx-auto mt-4">
-                        <div className="lg:text-center">
-                            <h2 className="text-lg font-semibold text-lime-600">
-                                Documentation
-                            </h2>
-                            <p className="text-lg font-medium leading-6 text-gray-900 mt-2">
-                                With Catseye, you can create and manage your
-                                code-related information with annotations. Here,
-                                we will take you through some of the basics.
-                            </p>
-                            {/* <h2 className="text-lg font-semibold text-lime-600 mt-2">
-                                Background
-                            </h2>
-                            <p className="mt-2 ml-16 text-base text-gray-500">
-                                Catseye allows you to create, share, and keep
-                                track of your code-related information using
-                                annotations. Catseye does this by using GitHub
-                                to organize and share your annotations by
-                                project and uses Google FireStore to store your
-                                user and annotation data.
-                            </p> */}
-                        </div>
-
-                        <DocumentationSnippet
-                            title={'Making Your First Annotation'}
-                            id={'makeYourFirstAnnotation'}
-                            steps={firstAnnotation}
-                        />
-                        <DeepDive
-                            title={'What is an Annotation?'}
-                            id={'whatIsAnAnnotation'}
-                            steps={annotationDeepDiveList}
-                            image={annotationDeepDiveImage}
-                        />
-                    </main>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-const SideNavigationBarItem = ({ id, title, navInView }) => {
-    const isActive = navInView.get(id)
-        ? 'text-lime-600 hover:text-lime-700 border-lime-400 border-l-2 hover:border-lime-500 '
-        : 'text-slate-700 hover:text-slate-900 '
-    return (
-        <li
-            onClick={() => {
-                const div = document.getElementById(id)
-                div?.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start',
-                    inline: 'center',
-                })
-            }}
-            className={
-                isActive +
-                'block cursor-pointer border-l pl-4 -ml-px border-transparent hover:border-slate-400'
-            }
-        >
-            {title}
-        </li>
-    )
-}
-
-const SideNavigationBar = ({ navInView }) => {
-    return (
-        <div className="hidden lg:block fixed z-20 inset-0 top-[3.8125rem] left-[max(0px,calc(40%-45rem))] right-auto w-[19.5rem] pb-10 px-8 overflow-y-auto">
-            <nav className="lg:text-sm lg:leading-6 relative">
-                <div className="sticky top-0 -ml-0.5">
-                    <ul>
-                        <li className="mt-12 lg:mt-8">
-                            <h4 className="mb-8 lg:mb-3 font-semibold text-slate-900 dark:text-slate-200">
-                                Getting Started with Catseye
-                            </h4>
-                            <ul className="space-y-6 lg:space-y-2 border-l border-slate-100 dark:border-slate-800">
-                                {sectionIds.map((sec) => (
-                                    <SideNavigationBarItem
-                                        key={sec.id}
-                                        id={sec.id}
-                                        title={sec.title}
-                                        navInView={navInView}
-                                    />
-                                ))}
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    )
+export const sidebarDeepDiveImage = {
+    src: './catseye-pane-detailed-numbered.png',
+    alt: 'The Catseye pane with numbers calling out the search bar, dropdown menu, filters, sorts, new annotation dialogue, mass operations bar, a collapsed anotation, an open annotation, checkboxes for selecting annotations, and another unanchored, collapsed annoation.',
 }

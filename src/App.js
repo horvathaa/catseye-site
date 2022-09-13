@@ -5,7 +5,7 @@ import './App.css'
 import Hero, { Navigation } from './components/hero'
 import FeatureList from './components/FeatureList'
 import GetStarted from './components/getStarted'
-import Documentation from './components/documentation'
+import Documentation from './components/documentation/documentation'
 import Footer from './components/footer'
 import * as React from 'react'
 
