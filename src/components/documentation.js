@@ -110,14 +110,14 @@ const firstAnnotation = [
 
 function DocumentationSnippet({ title, steps, id }) {
     return (
-        <div className="lg:text-center">
+        <div className="lg:text-center border-t-2 mt-4">
             <h2
                 id={id}
-                className="mt-2 font-bold leading-8 tracking-tight text-lime-600 sm:text-4xl lg:text-2xl"
+                className="mt-4 mb-4 font-bold leading-8 tracking-tight text-lime-600 sm:text-4xl lg:text-2xl"
             >
                 {title}
             </h2>
-            <div className="mt-2">
+            <div className={'mt-2 ' + id}>
                 <dl
                     className="rounded-md"
                     // className="space-y-10 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 md:space-y-0"
@@ -166,70 +166,296 @@ function DocumentationSnippet({ title, steps, id }) {
 }
 
 const annotationDeepDiveImage = {
-    src: './catseye-detailed-annotation-numbered.png',
+    src: './catseye-detailed-anno-v2.png',
     alt: 'An annotation with two code anchors, text saying "consider renaming this function", and a reply from a collaborator saying "I think we should call it wipeCanvase since that is what the code is actually doing -- see second anchor".',
 }
 
 const annotationDeepDiveList = [
     {
         number: <span class="dot content">1</span>,
-        //'1',
-        description:
-            "The original author of the annotations's name and profile picture, along with the time at which the annotation was originally created, and when it was last edited. Clicking on the username will open the user's GitHub page.",
+        key: "The original author of the annotations's name and profile picture",
+        description: (
+            <div>
+                <i className="font-medium">
+                    The original author of the annotations's name and profile
+                    picture
+                </i>
+                , along with the time at which the annotation was originally
+                created, and when it was last edited. Clicking on the username
+                will open the user's GitHub page.
+            </div>
+        ),
     },
     {
         number: <span class="dot content">2</span>,
-        description:
-            'Operations a user can perform on an annotation -- this includes (from left to right) adding a new code anchor to the annotation, pinning the annotation, resolving the annotation, and deleting the annotation. You can add a new anchor to your annotation by selecting some code, then clicking the anchor button. A pinned annotation will ignore all filters such that it is always accessible, and its code anchor(s) can be navigated to using a keyboard shortcut or using the Catseye context menu. Resolving an annotation is like resolving a Google Doc comment, in that it will remove the annotation but be archived. Deleting an annotation removes the annotation.',
+
+        key: 'Operations a user can perform on an annotation',
+        description: (
+            <div>
+                Operations a user can perform on an annotation. This includes
+                (from left to right):
+                <ul>
+                    <li className="ml-4 mb-2 flex items-center">
+                        <div className="p-2">
+                            <img
+                                src="./add-anchor-icon.png"
+                                alt="Add anchor button"
+                                className="w-auto rounded-md max-w-none"
+                            ></img>
+                        </div>
+                        <div>
+                            <i className="font-medium">
+                                Adding a new code anchor to the annotation.
+                            </i>{' '}
+                            You can add a new code anchor by selecting some code
+                            in the editor, then clicking this button. Adding a
+                            new code anchor can help with creating connections
+                            between different parts of your code, better
+                            contextualizing your annotation or reply, and for
+                            creating navigational "bookmarks" to different parts
+                            of the code you find yourself going to frequently.
+                        </div>
+                    </li>
+                    <li className="ml-4 mb-2 flex items-center">
+                        <div className="p-2 flex flex-col">
+                            <img
+                                src="./not-pinned-pin-icon.png"
+                                alt="Button to pin an annotation"
+                                className="w-auto rounded-md max-w-none mb-4"
+                            ></img>
+                            <img
+                                src="./pinned-pin-icon.png"
+                                alt="Button to un-pin an annotation"
+                                className="w-auto rounded-md max-w-none"
+                            ></img>
+                        </div>
+                        <div>
+                            <i className="font-medium">
+                                Pinning an annotation.
+                            </i>{' '}
+                            You can pin an annotation by clicking the not
+                            filled-in pin button. Pinning an annotation allows
+                            the annotation to be seen across projects, ignore
+                            any filters that you may have in place, and allows
+                            you to use a keyboard shortcut to jump to the pinned
+                            annotations' code anchors. When the annotation is
+                            pinned, it will show the filled-in pin icon -- you
+                            can un-pin the annotation by clicking the filled-in
+                            pin button.
+                        </div>
+                    </li>
+                    <li className="ml-4 mb-2 flex items-center">
+                        <div className="p-2 flex flex-col">
+                            <img
+                                src="./unresolved-resolve-icon.png"
+                                alt="Button to resolve an annotation"
+                                className="w-auto rounded-md max-w-none mb-4"
+                            ></img>
+                            <img
+                                src="./resolved-resolve-icon.png"
+                                alt="Button to un-resolve an annotation"
+                                className="w-auto rounded-md max-w-none"
+                            ></img>
+                        </div>
+                        <div>
+                            <i className="font-medium">
+                                Resolving an annotation.
+                            </i>{' '}
+                            You can resolve an annotation by clicking the not
+                            filled-in checkmark button. Resolving an annotation
+                            removes the annotation from view, essentially
+                            marking the annotation as "done". Resolved
+                            annotations can be viewed by setting your filters to
+                            show resolved annotations -- you can then
+                            "un-resolve" the annotation by clicking the
+                            filled-in checkmark button, in the case that the
+                            discussion or issue is not truly resolved.
+                        </div>
+                    </li>
+                    <li className="ml-4 mb-2 flex items-center">
+                        <div className="p-2 flex flex-col">
+                            <img
+                                src="./delete-icon.png"
+                                alt="Button to delete an annotation"
+                                className="w-auto rounded-md max-w-none mb-4"
+                            ></img>
+                        </div>
+                        <div>
+                            <i className="font-medium">
+                                Deleting an annotation.
+                            </i>{' '}
+                            You can delete an annotation by clicking the
+                            trashcan button. Once an annotation is deleted, it
+                            will be removed and inaccessible from Catseye. Only
+                            the original author of an annotation may delete it.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        ),
+        // 'Operations a user can perform on an annotation -- this includes (from left to right) adding a new code anchor to the annotation, pinning the annotation, resolving the annotation, and deleting the annotation. You can add a new anchor to your annotation by selecting some code, then clicking the anchor button. A pinned annotation will ignore all filters such that it is always accessible, and its code anchor(s) can be navigated to using a keyboard shortcut or using the Catseye context menu. Resolving an annotation is like resolving a Google Doc comment, in that it will remove the annotation but be archived. Deleting an annotation removes the annotation.',
     },
     {
         number: <span class="dot content">3</span>,
-        description:
-            'The annotation\'s first code anchor. The top of the code anchor shows where the anchor point is located -- in this case, the anchor is in the "space-invaders.js" file, on line 497, and was made at 14:50 on September 7th. The annotated code is shown below, with the text in bold being what the user actually annotated (in this case, "function preDrawImage()") and the lighter green lines show some of the surrounding code. Clicking on the code anchor will navigate to that particular line(s) of code. Code anchors are updated on every keystroke, so if the user is actively editing, the anchor will reflect those changes.',
+        description: (
+            <div>
+                <i className="font-medium">
+                    The metadata for the annotation's first code anchor
+                </i>
+                . This includes the filename (in this case,
+                "space-invaders.js"), the line number (or range of line numbers,
+                if it is a multi-line code anchor), what Git branch and commit
+                the anchor is on, and the time at which the anchor was created
+                (in this case, 16:35 on September 12th, 2022). The anchor icon
+                to the right indicates that the code anchor is currently
+                anchored -- we will discuss un-anchored annotations in more
+                depth later.
+            </div>
+        ),
+        key: "The metadata for the annotation's first code anchor",
     },
     {
         number: <span class="dot content">4</span>,
-        description:
-            'Each anchor is versioned, meaning we capture a version of each anchor at every Git commit. These prior versions can be viewed by clicking the dots below the anchor, like a photo carousel.',
+        description: (
+            <div>
+                <i className="font-medium">
+                    The annotation's first code anchor
+                </i>
+                . The code that the user annotated (in this case,{' '}
+                <code>function preDrawImages()</code>) is shown in a gray block
+                with white text, while the surrounding code context is shown in
+                light green. Code anchors are updated on each keystroke, meaning
+                the code anchor, the surrounding code, and the line number(s)
+                will be kept up to date while you are editing. Clicking on the
+                code anchor will navigate you to that line of code. Code anchors
+                are also automatically versioned, meaning that, on each Git
+                commit, a version of the code anchor will be saved and can be
+                viewed in a carousel view.
+            </div>
+        ),
+        key: "The annotation's first code anchor",
+        // 'Each anchor is versioned, meaning we capture a version of each anchor at every Git commit. These prior versions can be viewed by clicking the dots below the anchor, like a photo carousel.',
     },
     {
         number: <span class="dot content">5</span>,
-        description: 'A second anchor attached to this annotation.',
+        description: (
+            <div>
+                <i className="font-medium">
+                    A second code anchor attached to this annotation
+                </i>
+                , in this case, a multi-line code anchor showing the context in
+                which the original code anchor function is invoked . This second
+                anchor seeks to better contextualize the reply another user
+                made. Any user may add a code anchor to an annotation that is
+                shared with them.
+            </div>
+        ),
+        key: 'A second code anchor attached to this annotation',
     },
     {
         number: <span class="dot content">6</span>,
-        description:
-            'The different, optional labels that can be assigned to an annotation. This annotation is labeled as a "proposal".',
+        description: (
+            <div>
+                <i className="font-medium">
+                    The different, optional labels that can be assigned to an
+                    annotation
+                </i>
+                . This annotation is labeled as a "proposal", since the user is
+                proposing renaming the function. Annotations can also be marked
+                as questions (in the case that a user has a question about some
+                code), tasks (for lightweight task-tracking), and issues (in the
+                case the user believes they found a bug in the code).
+                Annotations can have multiple labels, such that, for example, an
+                annotation can be both a question and an issue if the user
+                believes some code is incorrect, but is not sure and wants to
+                ask their collaborators. Once an annotation is labeled, these
+                labels can be filtered upon to help you and your collaborators
+                find any outstanding annotations that need addressing.
+            </div>
+        ),
+        key: 'The different, optional labels that can be assigned to an annotation',
+        // 'The different, optional labels that can be assigned to an annotation. This annotation is labeled as a "proposal".',
     },
     {
         number: <span class="dot content">7</span>,
-        description:
-            'The edit button for the annotation -- only the original author of an annotation may edit it.',
+        description: (
+            <div>
+                <i className="font-medium">
+                    The edit button for the annotation
+                </i>
+                . Only the original author of an annotation may edit it. Editing
+                an annotation allows you to change the annotation text body and
+                who the annotation is visible to. An annotation can either be
+                private and only viewable by the original author, or it can be
+                shared with all collaborators that are on the particular GitHub
+                project the annotation is associated with.
+            </div>
+        ),
+        key: 'The edit button for the annotation',
     },
     {
         number: <span class="dot content">8</span>,
-        description:
-            'The annotation text body -- in this case, the user proposed renaming "preDrawImages" to something else.',
+        description: (
+            <div>
+                <i className="font-medium">The annotation text body</i>. In this
+                case, the annotation author is proposing renaming{' '}
+                <code>function preDrawImages()</code>. An annotation can be
+                about whatever you want -- whether it be a note to yourself, a
+                question for a teammate, or just an empty space for bookmarking
+                some code.
+            </div>
+        ),
+        key: 'The annotation text body',
+        // 'The annotation text body -- in this case, the user proposed renaming "preDrawImages" to something else.',
     },
     {
         number: <span class="dot content">9</span>,
-        description:
-            'A reply to the original annotation by another user -- in this case, "cat" suggested a new name for the function and added an anchor pointing to where the function is invoked.',
+        description: (
+            <div>
+                <i className="font-medium">
+                    A reply to the original annotation by another user
+                </i>
+                . In this case, the user "cat" is suggesting a new name for the
+                function, given the context they have provided in the second
+                code anchor they added. Replies can also be edited or deleted by
+                the reply's author.
+            </div>
+        ),
+        key: 'A reply to the original annotation by another user',
+        // 'A reply to the original annotation by another user -- in this case, "cat" suggested a new name for the function and added an anchor pointing to where the function is invoked.',
     },
     {
         number: <span class="dot content">10</span>,
-        description:
-            'The reply field -- the original author is replying to "cat" here. ',
+        description: (
+            <div>
+                <i className="font-medium">
+                    The reply field for this annotation
+                </i>
+                . In this case, the original author is starting a reply that
+                says "Good idea!". Any user who can see an annotation may reply
+                to it.
+            </div>
+        ),
+        key: 'The reply field',
+        // 'The reply field -- the original author is replying to "cat" here. ',
     },
 ]
 
-export function DeepDive({ steps, image, title }) {
+export function DeepDive({ steps, image, title, id }) {
     return (
-        <div className="lg:text-center">
-            <h2 className="mt-2 font-bold leading-8 tracking-tight text-lime-600 sm:text-4xl lg:text-2xl">
+        <div className="lg:text-center lg:text-center border-t-2 mt-4">
+            <h2
+                id={id}
+                className="mt-4 font-bold leading-8 tracking-tight text-lime-600 sm:text-4xl lg:text-2xl"
+            >
                 {title}
             </h2>
-            <div className="mt-2 m-2 px-4 py-5 flex flex-col justify-items-center items-center">
+            <div
+                className={
+                    'mt-2 m-2 px-4 py-5 flex flex-col justify-items-center items-center ' +
+                    id
+                }
+            >
                 <img
                     src={image.src}
                     className="sm:h-full sm:w-full lg:h-1/2 lg:w-1/2 rounded-md mb-10"
@@ -245,7 +471,7 @@ export function DeepDive({ steps, image, title }) {
                             i % 2 === 0 ? 'bg-gray-50' : 'bg-white'
                         return (
                             <div
-                                key={feature.description}
+                                key={'annotation-deep-dive-' + feature.key}
                                 className={
                                     grayOrWhite +
                                     ' relative h-auto w-3/4 flex px-4 py-5 sm:gap-2 sm:px-6 rounded-md'
@@ -279,11 +505,51 @@ export function DeepDive({ steps, image, title }) {
     )
 }
 
+const sectionIds = [
+    { id: 'makeYourFirstAnnotation', title: 'Making Your First Annotation' },
+    { id: 'whatIsAnAnnotation', title: 'What is an Annotation?' },
+]
+
 export default function Documentation({ scrollTo, setScrollTo }) {
+    const [navInView, setNavInView] = React.useState(new Map())
+
+    const updateNavInView = React.useCallback((pos) => {
+        let newViewports = new Map()
+        sectionIds.forEach((sec) => {
+            newViewports.set(sec.id, getViewportInRange(sec.id, pos))
+        })
+        return newViewports
+    }, [])
+
+    const handleScroll = React.useCallback(() => {
+        setNavInView(updateNavInView(window.scrollY))
+    }, [setNavInView, updateNavInView])
+
+    React.useEffect(() => {
+        window.addEventListener('scroll', handleScroll)
+        initViewports()
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [handleScroll])
+
+    const initViewports = () => {
+        let newViewports = new Map()
+        sectionIds.forEach((sec) => {
+            newViewports.set(sec.id, sec.id === 'makeYourFirstAnnotation')
+        })
+        setNavInView(newViewports)
+    }
+
+    const getViewportInRange = (id, pos) => {
+        const el = document.querySelector('.' + id)
+        const rect = el.getBoundingClientRect()
+        return rect.bottom >= 0 && rect.top <= pos
+    }
+
     React.useEffect(() => {
         if (scrollTo) {
             const div = document.getElementById('makeYourFirstAnnotation')
-            console.log('div', div)
             div?.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start',
@@ -295,9 +561,10 @@ export default function Documentation({ scrollTo, setScrollTo }) {
 
     return (
         <div className="relative overflow-hidden bg-white">
-            <div className="mx-auto max-w-7xl">
-                <div className="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:w-full lg:pb-28 xl:pb-32">
-                    <main className="mx-auto mt-10 max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+            <div className="mx-auto max-w-screen-2xl">
+                <SideNavigationBar navInView={navInView} />
+                <div className="relative z-10 pl-[11.5rem] pb-8 sm:pb-16 md:pb-20 lg:w-full lg:pb-28 xl:pb-32">
+                    <main className="mx-auto mt-4">
                         <div className="lg:text-center">
                             <h2 className="text-lg font-semibold text-lime-600">
                                 Documentation
@@ -327,12 +594,65 @@ export default function Documentation({ scrollTo, setScrollTo }) {
                         />
                         <DeepDive
                             title={'What is an Annotation?'}
+                            id={'whatIsAnAnnotation'}
                             steps={annotationDeepDiveList}
                             image={annotationDeepDiveImage}
                         />
                     </main>
                 </div>
             </div>
+        </div>
+    )
+}
+
+const SideNavigationBarItem = ({ id, title, navInView }) => {
+    const isActive = navInView.get(id)
+        ? 'text-lime-600 hover:text-lime-700 border-lime-400 border-l-2 hover:border-lime-500 '
+        : 'text-slate-700 hover:text-slate-900 '
+    return (
+        <li
+            onClick={() => {
+                const div = document.getElementById(id)
+                div?.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start',
+                    inline: 'center',
+                })
+            }}
+            className={
+                isActive +
+                'block cursor-pointer border-l pl-4 -ml-px border-transparent hover:border-slate-400'
+            }
+        >
+            {title}
+        </li>
+    )
+}
+
+const SideNavigationBar = ({ navInView }) => {
+    return (
+        <div className="hidden lg:block fixed z-20 inset-0 top-[3.8125rem] left-[max(0px,calc(40%-45rem))] right-auto w-[19.5rem] pb-10 px-8 overflow-y-auto">
+            <nav className="lg:text-sm lg:leading-6 relative">
+                <div className="sticky top-0 -ml-0.5">
+                    <ul>
+                        <li className="mt-12 lg:mt-8">
+                            <h4 className="mb-8 lg:mb-3 font-semibold text-slate-900 dark:text-slate-200">
+                                Getting Started with Catseye
+                            </h4>
+                            <ul className="space-y-6 lg:space-y-2 border-l border-slate-100 dark:border-slate-800">
+                                {sectionIds.map((sec) => (
+                                    <SideNavigationBarItem
+                                        key={sec.id}
+                                        id={sec.id}
+                                        title={sec.title}
+                                        navInView={navInView}
+                                    />
+                                ))}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
     )
 }
