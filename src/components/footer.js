@@ -43,14 +43,14 @@ export default function Footer({ setViewing, viewing }) {
                     </button>
                 </li>
                 <li>
-                    <button href="#" class="mr-4 hover:underline md:mr-6">
-                        Privacy Policy
-                    </button>
-                </li>
-                <li>
-                    <button href="#" class="mr-4 hover:underline md:mr-6">
-                        Licensing
-                    </button>
+                    <a
+                        href="https://forms.gle/BgKWhzLqxzp4zvmZ8"
+                        target={'_blank'}
+                        rel="noreferrer"
+                        class="mr-4 hover:underline md:mr-6"
+                    >
+                        IRB
+                    </a>
                 </li>
                 <li>
                     <a

@@ -27,7 +27,6 @@ function Hero({ setViewing }) {
                             <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                                 <div className="rounded-md shadow">
                                     <button
-                                        // href="#"
                                         onClick={() =>
                                             setViewing('home-getStarted')
                                         }
@@ -38,7 +37,6 @@ function Hero({ setViewing }) {
                                 </div>
                                 <div className="mt-3 sm:mt-0 sm:ml-3">
                                     <button
-                                        // href="#"
                                         onClick={() =>
                                             setViewing('documentation')
                                         }

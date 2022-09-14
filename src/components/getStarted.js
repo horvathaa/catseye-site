@@ -79,9 +79,11 @@ const installationSteps = [
                 <li className="bg-white px-4 py-5">Open Visual Studio Code.</li>
                 <li className="bg-gray-200 px-4 py-5">
                     <div className="flex justify-between">
-                        Open the Extensions pane - you can do this by either
-                        hitting Ctrl/Cmd + Shift + X or clicking the Extensions
-                        button on the left side panel.
+                        <div className="pr-4 pt-2">
+                            Open the Extensions pane - you can do this by either
+                            hitting Ctrl/Cmd + Shift + X or clicking the
+                            Extensions button on the left side panel.
+                        </div>
                         <img
                             src={'./extensions-pane.png'}
                             className={'rounded-md'}
@@ -93,7 +95,9 @@ const installationSteps = [
                 </li>
                 <li className="bg-white px-4 py-5">
                     <div className="flex justify-between">
-                        Click the three-dot menu in the Extensions panel.
+                        <div className="pr-4 pt-2">
+                            Click the three-dot menu in the Extensions panel.
+                        </div>
                         <img
                             src={'./extensions-three-dot.png'}
                             className={'rounded-md'}
@@ -105,7 +109,9 @@ const installationSteps = [
                 </li>
                 <li className="bg-gray-200 px-4 py-5">
                     <div className="flex justify-between">
-                        Click the "Install from VSIX..." menu option.
+                        <div className="pr-4 pt-2">
+                            Click the "Install from VSIX..." menu option.
+                        </div>
                         <img
                             src={'./extensions-install-from-vsix.png'}
                             className={'rounded-md'}
@@ -119,15 +125,16 @@ const installationSteps = [
                     Find and select the catseye.vsix file, then click "Install"
                     - note that the installation may take some time. After it is
                     finished, if Catseye does not appear in your installed
-                    extensions list as follows, then quit and restart Visual
-                    Studio Code.
+                    extensions list, then quit and restart Visual Studio Code.
                 </li>
                 <li className="bg-gray-200 px-4 py-5">
                     <div className="flex justify-between">
-                        Once installed, the extension should prompt you to
-                        authenticate with GitHub - you should see a pop-up that
-                        says "The extension Catseye wants to sign-in using
-                        GitHub" - click "Allow".
+                        <div className="pr-4 pt-2">
+                            Once installed, the extension should prompt you to
+                            authenticate with GitHub - you should see a pop-up
+                            that says "The extension Catseye wants to sign-in
+                            using GitHub" - click "Allow".
+                        </div>
                         <img
                             src={'./catseye-github-auth-popup.png'}
                             className={'rounded-md sm:w-full lg:w-2/5'}
@@ -139,9 +146,12 @@ const installationSteps = [
                 </li>
                 <li className="bg-white px-4 py-5">
                     <div className="flex justify-between">
-                        Your default internet browser should open to a GitHub
-                        webpage that displays a pop-up prompting you to re-open
-                        Visual Studio Code. Click "Open Visual Studio Code".
+                        <div className="pr-4 pt-2">
+                            Your default internet browser should open to a
+                            GitHub webpage that displays a pop-up prompting you
+                            to re-open Visual Studio Code. Click "Open Visual
+                            Studio Code".
+                        </div>
                         <img
                             src={'./github-auth-browser.png'}
                             className={'rounded-md sm:w-full lg:w-2/5'}
@@ -153,12 +163,15 @@ const installationSteps = [
                 </li>
                 <li className="bg-gray-200 px-4 py-5 rounded-b-xl">
                     <div className="flex justify-between">
-                        Visual Studio Code will now display a pop-up asking you
-                        to open "vscode.github-authentication" - click "Open".
-                        This will sign you in to your GitHub account in Visual
-                        Studio Code and authenticate Catseye with your GitHub
-                        account. This will complete the authentication process,
-                        and you should now be able to use Catseye!
+                        <div className="pr-4 pt-2">
+                            Visual Studio Code will now display a pop-up asking
+                            you to open "vscode.github-authentication" - click
+                            "Open". This will sign you in to your GitHub account
+                            in Visual Studio Code and authenticate Catseye with
+                            your GitHub account. This will complete the
+                            authentication process, and you should now be able
+                            to use Catseye!
+                        </div>
                         <img
                             src={'./vscode-uri-auth.png'}
                             className={'rounded-md sm:w-full lg:w-2/5'}

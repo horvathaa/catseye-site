@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { scrollToId } from './documentation/documentationNavBar'
 import '../App.css'
 
 const teammates = [
@@ -166,19 +168,35 @@ const Teammates = ({ team, title }) => {
     )
 }
 
-export default function About({ setViewing }) {
+const HeaderAndText = ({ obj }) => {
     return (
-        <div className="bg-white">
-            <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-                <h1 className="text-2xl font-medium text-gray-700 mb-4">
-                    About Us
-                </h1>
-                <p className="text-lg text-gray-700 mb-4">
-                    We are a team of researchers interested in making
-                    programming more human-centered through developing tools
-                    that make various aspects of software development easier,
-                    more intuitive, and comprehensible. Catseye is just one of
-                    many projects in the{' '}
+        <div className="mt-4">
+            <h1
+                id={'about'}
+                className="text-2xl font-medium text-gray-700 mb-4"
+            >
+                {obj.title}
+            </h1>
+            <p className="text-lg text-gray-700 mb-4">{obj.text}</p>
+        </div>
+    )
+}
+
+export default function About({ setViewing }) {
+    useEffect(() => {
+        scrollToId('about')
+    }, [])
+
+    const about = {
+        about: {
+            title: 'About Us',
+            text: (
+                <>
+                    We are a team of researchers invested in making programming
+                    more human-centered through developing tools that make
+                    various aspects of software development easier, more
+                    intuitive, and comprehensible. Catseye is just one of many
+                    projects in the{' '}
                     <a
                         target={'_blank'}
                         rel="noreferrer"
@@ -194,13 +212,45 @@ export default function About({ setViewing }) {
                     >
                         try it out
                     </button>{' '}
-                    or read our UIST 2022 paper.
-                </p>
+                    or read our{' '}
+                    <a
+                        href={'./horvath-catseye-uist22.pdf'}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-green-500 hover:text-green-400 hover:underline"
+                    >
+                        {' '}
+                        UIST 2022 paper
+                    </a>
+                    .
+                </>
+            ),
+        },
+        funding: {
+            title: 'Funding',
+            text: (
+                <>
+                    This work is funded by NSF grant "Personalizing API
+                    Documentation" (award CCF-2007482) and Google. Any opinions,
+                    findings and conclusions or recommendations expressed in
+                    this material are those of the author(s) and do not
+                    necessarily reflect those of the National Science Foundation
+                    or any other sponsor.
+                </>
+            ),
+        },
+    }
+
+    return (
+        <div className="bg-white">
+            <div className="mx-auto max-w-2xl py-8 px-4 sm:py-12 sm:px-6 lg:max-w-7xl lg:px-8">
+                <HeaderAndText obj={about['about']} />
                 <Teammates title={'Our Team'} team={teammates} />
                 <Teammates
                     title={'Former Team Members'}
                     team={formerTeammates}
                 />
+                <HeaderAndText obj={about['funding']} />
             </div>
         </div>
     )
