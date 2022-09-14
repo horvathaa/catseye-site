@@ -2,7 +2,7 @@ import { sectionIds } from './documentation'
 
 const SideNavigationBarItem = ({ id, title, navInView }) => {
     const isActive = navInView.get(id)
-        ? 'text-lime-600 hover:text-lime-700 border-lime-400 border-l-2 hover:border-lime-500 '
+        ? 'text-lime-600 hover:text-lime-500 border-lime-400 border-l-2 hover:border-lime-300 '
         : 'text-slate-700 hover:text-slate-900 '
     return (
         <li
