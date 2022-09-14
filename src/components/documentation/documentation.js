@@ -50,14 +50,6 @@ export default function Documentation({ scrollTo, setScrollTo }) {
 
     const getViewportInRange = (id, pos) => {
         const el = document.querySelector('.' + id)
-        console.log(
-            'im losing it scoob',
-            el,
-            'pos',
-            pos,
-            'el.getBoundingClientRect()',
-            el.getBoundingClientRect()
-        )
         const rect = el.getBoundingClientRect()
         return rect.bottom >= 0 && rect.top <= pos
     }

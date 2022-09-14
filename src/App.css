@@ -32,6 +32,14 @@
     color: #61dafb;
 }
 
+.dot.content.small-inline {
+    display: inline-block;
+    text-align: center;
+    width: 24px;
+    height: 24px;
+    font-size: smaller;
+}
+
 .dot.content {
     color: white;
     border-color: #606060;
@@ -50,6 +58,10 @@
     width: 35px;
     background-color: #bbb;
     border-radius: 50%;
+}
+
+.w-99 {
+    width: 99%;
 }
 
 @keyframes App-logo-spin {

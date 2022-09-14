@@ -406,9 +406,416 @@ export const sidebarDeepDiveList = [
         ),
         key: 'The Catseye menu',
     },
+    {
+        number: <span class="dot content">3</span>,
+        description: (
+            <div>
+                <i className="font-medium">
+                    The annotation sorting and scope options
+                </i>
+                .{' '}
+                <ul>
+                    <li className="ml-4 mb-2 flex-col items-center ">
+                        <div className="p-2">
+                            <img
+                                src="./sort-location-menu.png"
+                                alt="Sort by location or time dropdown"
+                                className="w-auto m-auto rounded-md max-w-none"
+                            ></img>
+                        </div>
+                        <div>
+                            You can <i className="font-medium">sort</i> your
+                            annotations across two dimensions -- time and
+                            location. Time will have the newest annotations at
+                            the top of the list, while location will sort by
+                            placing annotations that are in your
+                            currently-opened file first, and sort those
+                            annotations by line number, such that annotations at
+                            the top of the file will be at the top of the list.
+                            For annotations not in the current file, they will
+                            be sorted by time. By default, Catseye sorts
+                            annotations by <i>location</i>.
+                        </div>
+                    </li>
+                    <li className="ml-4 mb-2 flex-col items-center ">
+                        <div className="p-2">
+                            <img
+                                src="./scope-project-menu.png"
+                                alt="Choose the scope of annotations you want to view -- from file, to project, to all annotations that are viewable to you"
+                                className="w-auto m-auto rounded-md max-w-none"
+                            ></img>
+                        </div>
+                        <div>
+                            You can view annotations across three different{' '}
+                            <i className="font-medium">scopes</i> -- annotations
+                            in the current project, annotations in the current
+                            file, and all annotations that are viewable to you.
+                            Choosing a different scope will allow you to filter
+                            and sort across that set of annotations. By default,
+                            Catseye sets the annotation scope to <i>project</i>.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        ),
+        key: 'The annotation sorting and scope options',
+    },
+    {
+        number: <span class="dot content">4</span>,
+        description: (
+            <div>
+                <i className="font-medium">The annotation filtering options</i>.
+                You can filter your annotations across three dimensions: who{' '}
+                <i>authored</i> the annotation, the annotation <i>type</i>, and
+                the <i>state</i> of the annotation.{' '}
+                <ul>
+                    <li className="ml-4 mb-2 flex-col items-center ">
+                        <div className="p-2">
+                            <img
+                                src="./author-filter.png"
+                                alt="Two chips for choosing either the author of the annotation or others"
+                                className="w-auto m-auto rounded-md max-w-none"
+                            ></img>
+                        </div>
+                        <div>
+                            You can filter your annotations by who originally
+                            authored the annotation -- either show annotations
+                            only authored by yourself (i.e., your signed-in
+                            GitHub account), and/or annotations authored by
+                            other collaborators. In this example, the user has
+                            set the filters to only show annotations written by
+                            themselves, "horvathaa". By default, Catseye shows
+                            annotations written both by yourself and others.
+                        </div>
+                    </li>
+                    <li className="ml-4 mb-2 flex-col items-center ">
+                        <div className="p-2">
+                            <img
+                                src="./type-filter.png"
+                                alt="all 4 annotation types - issue, proposal, task, and question, along with untyped"
+                                className="w-auto m-auto rounded-md max-w-none"
+                            ></img>
+                        </div>
+                        <div>
+                            You can filter annotations by what type they have
+                            been assigned, along with showing and/or hiding
+                            annotations that do not have a type. In this
+                            example, the user has set their filters to show
+                            every annotation type except task-type annotations.
+                            By default, Catseye filters to show every annotation
+                            type, along with untyped annotations.
+                        </div>
+                    </li>
+                    <li className="ml-4 mb-2 flex-col items-center ">
+                        <div className="p-2">
+                            <img
+                                src="./state-filter.png"
+                                alt="checkboxes for including or hiding the three special states an annotation may have - 'show resolved' is selected in this case"
+                                className="w-auto m-auto rounded-md max-w-none"
+                            ></img>
+                        </div>
+                        <div>
+                            You can filter your annotation dependent upon
+                            whether it is in a certain state or not. You can set
+                            your filters to revisit resolved annotations, only
+                            show your most important pinned annotations, and
+                            unanchored annotations that you want to{' '}
+                            <button>reanchor</button>. By default, all 3 of
+                            these checkboxes are unchecked, meaning Catseye
+                            hides resolved annotations, and shows pinned and
+                            unanchored annotations among all other viewable
+                            annotations.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        ),
+        key: 'The annotation filtering options',
+    },
+    {
+        number: <span class="dot content">5</span>,
+        description: (
+            <div>
+                <i className="font-medium">The annotation creation view</i>.
+                Catseye shows a preview of the annotation you are about to make,
+                including the new code anchor (in this case,{' '}
+                <code>toDataURL</code>) along with the surrounding code context.
+                Optionally, you can select the annotation type, add more anchors
+                and pin the annotation. This user is writing an annotation that
+                says "My new annotation!". By default, annotations will be set
+                to "Post to Collaborators", but can be made private by selecting
+                "Post as Private" from the dropdown.
+            </div>
+        ),
+        key: 'The new annotation creation view',
+    },
+    {
+        number: <span class="dot content">6</span>,
+        description: (
+            <div>
+                <i className="font-medium">The mass operation bar</i>. Catseye
+                allows you to act on your annotations in batch to support easier
+                information management. You can select annotations to act upon
+                by clicking the checkbox to the left of an annotation (see{' '}
+                <span className="dot content small-inline">9</span>
+                ), or by selecting the checkbox to the left of the mass
+                operation bar. For any annotation that is selected, you can
+                perform the following operations:
+                <ul>
+                    <li className="ml-4 mb-2 flex items-center">
+                        <div className="p-2">
+                            <img
+                                src="./merge-icon.png"
+                                alt="Merge button"
+                                className="w-auto rounded-md max-w-none"
+                            ></img>
+                        </div>
+                        <div>
+                            <i className="font-medium">Merge annotations.</i>{' '}
+                            You can transform multiple annotations into one
+                            annotation by selecting what parts of each
+                            annotation you want to keep, including code anchors,
+                            replies, and annotation text bodies. Mergining
+                            annotations will create a new annotation, and delete
+                            the annotations that were included in the merge. You
+                            can read more about merging <button>here</button>.
+                        </div>
+                    </li>
+                    <li className="ml-4 mb-2 flex items-center">
+                        <div className="p-2">
+                            <img
+                                src="./not-pinned-pin-icon.png"
+                                alt="Pin button"
+                                className="w-auto rounded-md max-w-none"
+                            ></img>
+                        </div>
+                        <div>
+                            <i className="font-medium">Pin annotations.</i> Mass
+                            pinning annotations will pin un-pinned annotations,
+                            and will un-pin already-pinned annotations.
+                        </div>
+                    </li>
+                    <li className="ml-4 mb-2 flex items-center">
+                        <div className="p-2">
+                            <img
+                                src="./share-icon.png"
+                                alt="Share button"
+                                className="w-auto rounded-md max-w-none"
+                            ></img>
+                        </div>
+                        <div>
+                            <i className="font-medium">Share annotations.</i>{' '}
+                            Sharing annotations will set all selected
+                            annotations to be viewable by your teammates, if
+                            they were not already set to "Post to
+                            Collaborators".
+                        </div>
+                    </li>
+                    <li className="ml-4 mb-2 flex items-center">
+                        <div className="p-2">
+                            <img
+                                src="./unresolved-resolve-icon.png"
+                                alt="Resolve button"
+                                className="w-auto rounded-md max-w-none"
+                            ></img>
+                        </div>
+                        <div>
+                            <i className="font-medium">Resolve annotations.</i>{' '}
+                            Resolving annotations, like mass pinning
+                            annotations, will set all already-resolved
+                            annotations back to the unresolved state, and will
+                            resolve all unresolved annotations.
+                        </div>
+                    </li>
+                    <li className="ml-4 mb-2 flex items-center">
+                        <div className="p-2">
+                            <img
+                                src="./delete-icon.png"
+                                alt="Delete button"
+                                className="w-auto rounded-md max-w-none"
+                            ></img>
+                        </div>
+                        <div>
+                            <i className="font-medium">Delete annotations.</i>{' '}
+                            Be careful when mass deleting annotations, as they
+                            cannot be recovered!
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        ),
+        key: 'The mass operation bar',
+    },
+    {
+        number: <span class="dot content">7</span>,
+        description: (
+            <div>
+                <i className="font-medium">A collapsed annotation</i>.
+                Annotations are collapsed by default and will expand when
+                clicked on. The collapsed view shows the following information
+                (from left to right):
+                <ul>
+                    <li className="ml-4 mb-2 flex items-center">
+                        <div className="p-2">
+                            <img
+                                src="./user-profile-icon.png"
+                                alt="Small user profile icon"
+                                className="w-auto rounded-md max-w-none"
+                            ></img>
+                        </div>
+                        <div>
+                            <i className="font-medium">
+                                The annotation author's GitHub profile icon.
+                            </i>{' '}
+                        </div>
+                    </li>
+                    <li className="ml-4 mb-2 flex items-center">
+                        <div className="p-2">
+                            <img
+                                src="./anchored-icon.png"
+                                alt="Anchored icon"
+                                className="w-auto rounded-md max-w-none"
+                            ></img>
+                            <img
+                                src="./unanchored-icon.png"
+                                alt="Unanchored icon"
+                                className="w-99 mt-1 rounded-md max-w-none"
+                            ></img>
+                        </div>
+                        <div>
+                            <i className="font-medium">
+                                Whether or not the annotation is currently
+                                anchored.
+                            </i>{' '}
+                            If the annotation is anchored, it will show the top
+                            icon (see{' '}
+                            <span className="dot content small-inline">7</span>
+                            ), while an unanchored annotation will show the
+                            bottom icon (see{' '}
+                            <span className="dot content small-inline">10</span>
+                            ). You can read more about reanchoring an unanchored
+                            annotation <button>here</button>.
+                        </div>
+                    </li>
+                    <li className="ml-4 mb-2 flex-col items-center">
+                        <div className="p-2">
+                            <img
+                                src="./collapsed-anchor-text.png"
+                                alt="Collapsed anchor text"
+                                className="w-auto m-auto rounded-md max-w-none"
+                            ></img>
+                        </div>
+                        <div>
+                            <i className="font-medium ml-2">The code anchor.</i>{' '}
+                            If the annotation has multiple code anchors, the
+                            collapsed view will show the code from the first
+                            code anchor. If the code anchor is too long (i.e.,
+                            over 60 characters), the collapsed view will show a
+                            truncated version of the code.
+                        </div>
+                    </li>
+                    <li className="ml-4 mb-2 flex-col items-center">
+                        <div className="p-2">
+                            <img
+                                src="./collapsed-annotation-text.png"
+                                alt="Collapsed annotation text"
+                                className="w-auto m-auto rounded-md max-w-none"
+                            ></img>
+                        </div>
+                        <div>
+                            <i className="font-medium ml-2">
+                                The annotation text body.
+                            </i>
+                        </div>
+                    </li>
+                    When collapsed, users can also perform some operations on
+                    their annotations. These operations include:
+                    <li className="ml-4 mb-2 flex items-center">
+                        <div className="p-2">
+                            <img
+                                src="./pinned-pin-icon.png"
+                                alt="Pinned icon"
+                                className="w-auto rounded-md max-w-none"
+                            ></img>
+                        </div>
+                        <div>
+                            <i className="font-medium">
+                                Pinning an annotation.
+                            </i>{' '}
+                            This annotation is pinned. Clicking on the button
+                            will unpin the annotation.
+                        </div>
+                    </li>
+                    <li className="ml-4 mb-2 flex items-center">
+                        <div className="p-2">
+                            <img
+                                src="./resolved-resolve-icon.png"
+                                alt="Resolved icon"
+                                className="w-auto rounded-md max-w-none"
+                            ></img>
+                        </div>
+                        <div>
+                            <i className="font-medium">
+                                Resolving an annotation.
+                            </i>{' '}
+                            This annotation is resolved. Clicking on the button
+                            will unresolve the annotation.
+                        </div>
+                    </li>
+                    <li className="ml-4 mb-2 flex items-center">
+                        <div className="p-2">
+                            <img
+                                src="./delete-icon.png"
+                                alt="Delete icon"
+                                className="w-auto rounded-md max-w-none"
+                            ></img>
+                        </div>
+                        <div>
+                            <i className="font-medium">
+                                Deleting an annotation.
+                            </i>{' '}
+                            Clicking on the button will delete the annotation.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        ),
+        key: 'A collapsed annotation',
+    },
+    {
+        number: <span class="dot content">8</span>,
+        description: (
+            <div>
+                <i className="font-medium">An expanded annotation</i>. You can
+                collapse an annotation by clicking the top part of the
+                annotation (e.g., where the{' '}
+                <span className="dot content small-inline">8</span> is). You can
+                read more about all of the different parts of an annotation{' '}
+                <button>here</button>.
+            </div>
+        ),
+        key: 'An expanded annotation',
+    },
+    {
+        number: <span class="dot content">9</span>,
+        description: (
+            <div>
+                <i className="font-medium">
+                    The annotation selection checkboxes
+                </i>
+                . The annotation at{' '}
+                <span className="dot content small-inline">8</span> is not
+                selected, while the annotation at{' '}
+                <span className="dot content small-inline">10</span> is
+                selected. Selected annotations can be operated on with the mass
+                operation bar.
+            </div>
+        ),
+        key: 'The annotation selection checkboxes',
+    },
 ]
 
 export const sidebarDeepDiveImage = {
-    src: './catseye-pane-detailed-numbered.png',
+    src: './catseye-pane-detailed-numbered-v2.png',
     alt: 'The Catseye pane with numbers calling out the search bar, dropdown menu, filters, sorts, new annotation dialogue, mass operations bar, a collapsed anotation, an open annotation, checkboxes for selecting annotations, and another unanchored, collapsed annoation.',
 }
