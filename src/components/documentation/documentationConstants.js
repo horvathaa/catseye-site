@@ -1,3 +1,5 @@
+import { scrollToId } from './documentationNavBar'
+
 export const firstAnnotation = [
     {
         name: 'Open Your Code and Catseye',
@@ -791,7 +793,13 @@ export const sidebarDeepDiveList = [
                 annotation (e.g., where the{' '}
                 <span className="dot content small-inline">8</span> is). You can
                 read more about all of the different parts of an annotation{' '}
-                <button>here</button>.
+                <button
+                    className="text-green-500 hover:text-green-400 hover:underline"
+                    onClick={() => scrollToId('whatIsAnAnnotation')}
+                >
+                    here
+                </button>
+                .
             </div>
         ),
         key: 'An expanded annotation',

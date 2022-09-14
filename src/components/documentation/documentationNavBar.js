@@ -1,5 +1,14 @@
 import { sectionIds } from './documentation'
 
+export const scrollToId = (id) => {
+    const div = document.getElementById(id)
+    div?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'center',
+    })
+}
+
 const SideNavigationBarItem = ({ id, title, navInView }) => {
     const isActive = navInView.get(id)
         ? 'text-lime-600 hover:text-lime-500 border-lime-400 border-l-2 hover:border-lime-300 '
@@ -7,12 +16,7 @@ const SideNavigationBarItem = ({ id, title, navInView }) => {
     return (
         <li
             onClick={() => {
-                const div = document.getElementById(id)
-                div?.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start',
-                    inline: 'center',
-                })
+                scrollToId(id)
             }}
             className={
                 isActive +
