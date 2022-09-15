@@ -35,7 +35,7 @@ export function DeepDive({ steps, image, title, id }) {
                                 }
                             >
                                 <dt>
-                                    <h2 className="flex text-xl h-full w-full items-center justify-center rounded-md text-gray-900">
+                                    <h2 className="flex text-xl h-full w-full items-start justify-center rounded-md text-gray-900">
                                         {feature.number}
                                     </h2>
                                 </dt>

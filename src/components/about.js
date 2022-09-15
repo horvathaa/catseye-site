@@ -37,8 +37,9 @@ const teammates = [
         role: 'Developer, Designer',
         description: (
             <>
-                2nd year undergraduate in Computer Science at Yale University,
-                assisted in the design and development of Catseye through the{' '}
+                2nd year undergraduate in Statistics and Sociology at Yale
+                University, assisted in the design and development of Catseye
+                through the{' '}
                 <a
                     href="https://www.hcii.cmu.edu/summer-research-program"
                     target={'_blank'}
@@ -87,7 +88,7 @@ const teammates = [
         name: 'Andrew Macvean',
         href: 'https://www.linkedin.com/in/andrew-macvean-5b948b2b/',
         role: 'Advisor',
-        description: 'Oversees the research and development of Catseye.',
+        description: 'Consults on the research and development of Catseye.',
         // price: '$35',
         className: 'thumbnail portrait',
         imageSrc:
@@ -135,33 +136,34 @@ const Teammates = ({ team, title }) => {
             </h1>
             <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
                 {team.map((member) => (
-                    <a
-                        key={member.name + member.id}
-                        href={member.href}
-                        className="group"
-                    >
-                        <div
-                            className={
-                                member.className +
-                                'aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8'
-                            }
-                        >
-                            <img
-                                src={member.imageSrc}
-                                alt={member.imageAlt}
-                                className="h-full w-full object-cover object-center group-hover:opacity-75"
-                            />
-                        </div>
-                        <h3 className="mt-4 text-md text-gray-700">
-                            {member.name}
-                        </h3>
+                    <div className="group">
+                        <a key={member.name + member.id} href={member.href}>
+                            <div
+                                className={
+                                    member.className +
+                                    'aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8'
+                                }
+                            >
+                                <img
+                                    src={member.imageSrc}
+                                    alt={member.imageAlt}
+                                    className="h-full w-full object-cover object-center group-hover:opacity-75"
+                                />
+                            </div>
+
+                            <h3 className="mt-4 text-md text-gray-700">
+                                <span className="text-green-500 font-medium hover:text-green-400 hover:underline">
+                                    {member.name}
+                                </span>
+                            </h3>
+                        </a>
                         <h4 className="mt-2 font-medium text-sm text-gray-700">
                             {member.role}
                         </h4>
-                        <p className="mt-1 text-sm  text-gray-900">
+                        <p className="mt-1 text-sm text-gray-900">
                             {member.description}
                         </p>
-                    </a>
+                    </div>
                 ))}
             </div>
         </>
@@ -221,6 +223,18 @@ export default function About({ setViewing }) {
                     >
                         {' '}
                         UIST 2022 paper
+                    </a>
+                    . Catseye is also part of the Adamite project, which allows
+                    developers to use annotations in a variety of contexts for
+                    information tracking and sharing. You can read more about
+                    Adamite{' '}
+                    <a
+                        href={'https://adamite.netlify.app'}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-green-500 hover:text-green-400 hover:underline"
+                    >
+                        here
                     </a>
                     .
                 </>

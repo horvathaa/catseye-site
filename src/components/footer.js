@@ -44,6 +44,16 @@ export default function Footer({ setViewing, viewing }) {
                 </li>
                 <li>
                     <a
+                        href={'https://adamite.netlify.app/'}
+                        target={'_blank'}
+                        rel="noreferrer"
+                        class="mr-4 hover:underline md:mr-6 "
+                    >
+                        Adamite
+                    </a>
+                </li>
+                <li>
+                    <a
                         href="https://forms.gle/BgKWhzLqxzp4zvmZ8"
                         target={'_blank'}
                         rel="noreferrer"
