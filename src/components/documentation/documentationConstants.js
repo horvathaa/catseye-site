@@ -422,7 +422,7 @@ export const sidebarDeepDiveList = [
                             <img
                                 src="./sort-location-menu.png"
                                 alt="Sort by location or time dropdown"
-                                className="w-auto m-auto rounded-md max-w-none"
+                                className="w-auto m-auto rounded-md"
                             ></img>
                         </div>
                         <div>
@@ -444,7 +444,7 @@ export const sidebarDeepDiveList = [
                             <img
                                 src="./scope-project-menu.png"
                                 alt="Choose the scope of annotations you want to view -- from file, to project, to all annotations that are viewable to you"
-                                className="w-auto m-auto rounded-md max-w-none"
+                                className="w-auto m-auto rounded-md"
                             ></img>
                         </div>
                         <div>
@@ -476,7 +476,7 @@ export const sidebarDeepDiveList = [
                             <img
                                 src="./author-filter.png"
                                 alt="Two chips for choosing either the author of the annotation or others"
-                                className="w-auto m-auto rounded-md max-w-none"
+                                className="w-auto m-auto rounded-md"
                             ></img>
                         </div>
                         <div>
@@ -495,7 +495,7 @@ export const sidebarDeepDiveList = [
                             <img
                                 src="./type-filter.png"
                                 alt="all 4 annotation types - issue, proposal, task, and question, along with untyped"
-                                className="w-auto m-auto rounded-md max-w-none"
+                                className="w-auto m-auto rounded-md"
                             ></img>
                         </div>
                         <div>
@@ -513,7 +513,7 @@ export const sidebarDeepDiveList = [
                             <img
                                 src="./state-filter.png"
                                 alt="checkboxes for including or hiding the three special states an annotation may have - 'show resolved' is selected in this case"
-                                className="w-auto m-auto rounded-md max-w-none"
+                                className="w-auto m-auto rounded-md"
                             ></img>
                         </div>
                         <div>
@@ -704,7 +704,7 @@ export const sidebarDeepDiveList = [
                             <img
                                 src="./collapsed-anchor-text.png"
                                 alt="Collapsed anchor text"
-                                className="w-auto m-auto rounded-md max-w-none"
+                                className="w-auto m-auto rounded-md"
                             ></img>
                         </div>
                         <div>
@@ -721,7 +721,7 @@ export const sidebarDeepDiveList = [
                             <img
                                 src="./collapsed-annotation-text.png"
                                 alt="Collapsed annotation text"
-                                className="w-auto m-auto rounded-md max-w-none"
+                                className="w-auto m-auto rounded-md"
                             ></img>
                         </div>
                         <div>
@@ -827,3 +827,93 @@ export const sidebarDeepDiveImage = {
     src: './catseye-pane-detailed-numbered-v2.png',
     alt: 'The Catseye pane with numbers calling out the search bar, dropdown menu, filters, sorts, new annotation dialogue, mass operations bar, a collapsed anotation, an open annotation, checkboxes for selecting annotations, and another unanchored, collapsed annoation.',
 }
+
+export const vscodeEditorDeepDiveImage = {
+    src: './catseye-vscode-editor-numbered.png',
+    alt: 'The VS Code editor open to a JavaScript file with numbers showing how Catseye modifies the default VS Code Editor look and behavior',
+}
+
+export const vscodeEditorDeepDiveList = [
+    {
+        number: <span class="dot content">1</span>,
+        key: 'The text when hovering over a code anchor',
+        description: (
+            <div>
+                <i className="font-medium">
+                    The text when hovering over a code anchor
+                </i>
+                . Catseye appends the annotation text of the code anchor, along
+                with the annotation text of any other annotations that are
+                anchored to the same piece of code that is being hovered on, a
+                link that will scroll the Catseye pane to the annotation that is
+                attached to this piece of code, and any documentation that
+                Visual Studio Code would provide on that element. In this
+                example, the user is hovering over the variable{' '}
+                <code>canvas</code>, which has two annotations attached to it.
+            </div>
+        ),
+    },
+    {
+        number: <span class="dot content">2</span>,
+        key: 'The code anchor locations in the file',
+        description: (
+            <div>
+                <i className="font-medium">
+                    The code anchor locations in the file
+                </i>
+                . Visual Studio Code marks all of the code anchor locations
+                throughout the file in the scroll bar gutter with a light green
+                highlight (in dark mode) or a dark green highlight (in light
+                mode). Currently, at the lower arrow, the user is scrolled over
+                the location of two anchors.
+            </div>
+        ),
+    },
+    {
+        number: <span class="dot content">3</span>,
+        key: 'Annotated code anchors as they appear in the editor',
+        description: (
+            <div>
+                <i className="font-medium">
+                    Annotated code anchors as they appear in the editor
+                </i>
+                . When you annotate some code, Catseye will highlight the
+                annotated code with a light gray background and border.
+            </div>
+        ),
+    },
+    {
+        number: <span class="dot content">4</span>,
+        key: 'The "Create Annotation" option within the editor',
+        description: (
+            <div>
+                <i className="font-medium">
+                    The "Create Annotation" option within the editor
+                </i>
+                . Whenever you select some code and hover over the selection,
+                you have the option to create an annotation with the current
+                selection as the code anchor.
+            </div>
+        ),
+    },
+    {
+        number: <span class="dot content">5</span>,
+        key: 'The Catseye context menu options',
+        description: (
+            <div>
+                <i className="font-medium">The Catseye context menu options</i>.
+                Whenever you select some code and bring up the context menu,
+                Catseye adds the following 4 menu options to the standard
+                context menu: "Catseye: Create Annotation" (begins creating a
+                new annotation with the selected code), "Catseye: Create
+                Highlight" (creates an annotation with a code anchor comprised
+                of the selected code and no annotation body text), "Catseye:
+                Create Pinned Annotation" (does the same thing as "Catseye:
+                Create Highlight" but also pins the annotation for easier
+                navigation), and "Catseye: Launch Catseye" (either creates a new
+                Catseye pane, or brings the already-created Catseye pane into
+                view).
+            </div>
+        ),
+    },
+]

@@ -12,7 +12,7 @@ export const scrollToId = (id) => {
 const SideNavigationBarItem = ({ id, title, navInView }) => {
     const isActive = navInView.get(id)
         ? 'text-lime-600 hover:text-lime-500 border-lime-400 border-l-2 hover:border-lime-300 '
-        : 'text-slate-700 hover:text-slate-900 '
+        : 'text-slate-700 hover:text-slate-900 hover:border-slate-400 '
     return (
         <li
             onClick={() => {
@@ -20,7 +20,7 @@ const SideNavigationBarItem = ({ id, title, navInView }) => {
             }}
             className={
                 isActive +
-                'block cursor-pointer border-l pl-4 -ml-px border-transparent hover:border-slate-400'
+                'block cursor-pointer border-l pl-4 -ml-px border-transparent'
             }
         >
             {title}
@@ -30,7 +30,7 @@ const SideNavigationBarItem = ({ id, title, navInView }) => {
 
 export const SideNavigationBar = ({ navInView }) => {
     return (
-        <aside class="sticky top-8 p-4 mr-8 w-1/4">
+        <aside className="sticky top-8 p-4 mx-8 w-1/5">
             {' '}
             <div className="sticky top-4 -ml-0.5">
                 <ul>

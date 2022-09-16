@@ -1,19 +1,19 @@
 export default function Footer({ setViewing, viewing }) {
     return (
-        <footer class="p-4 bg-white rounded-lg border-t md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
-            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+        <footer className="p-4 bg-white rounded-lg border-t md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
+            <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
                 2022{' '}
                 <a
                     href="http://www.amberhorvath.com/"
                     target={'_blank'}
                     rel="noreferrer"
-                    class="hover:underline"
+                    className="hover:underline"
                 >
                     Amber Horvath
                 </a>
                 . All Rights Reserved.
             </span>
-            <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
+            <ul className="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
                 <li>
                     <svg
                         viewBox="0 0 24 24"
@@ -37,7 +37,7 @@ export default function Footer({ setViewing, viewing }) {
                 <li>
                     <button
                         onClick={() => setViewing('about')}
-                        class="mr-4 hover:underline md:mr-6 "
+                        className="mr-4 hover:underline md:mr-6 "
                     >
                         About
                     </button>
@@ -47,7 +47,7 @@ export default function Footer({ setViewing, viewing }) {
                         href={'https://adamite.netlify.app/'}
                         target={'_blank'}
                         rel="noreferrer"
-                        class="mr-4 hover:underline md:mr-6 "
+                        className="mr-4 hover:underline md:mr-6 "
                     >
                         Adamite
                     </a>
@@ -57,7 +57,7 @@ export default function Footer({ setViewing, viewing }) {
                         href="https://forms.gle/BgKWhzLqxzp4zvmZ8"
                         target={'_blank'}
                         rel="noreferrer"
-                        class="mr-4 hover:underline md:mr-6"
+                        className="mr-4 hover:underline md:mr-6"
                     >
                         IRB
                     </a>
@@ -65,7 +65,7 @@ export default function Footer({ setViewing, viewing }) {
                 <li>
                     <a
                         href="mailto:ahorvath@andrew.cmu.edu"
-                        class="hover:underline"
+                        className="hover:underline"
                     >
                         Contact
                     </a>
