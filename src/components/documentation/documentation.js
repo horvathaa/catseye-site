@@ -40,6 +40,18 @@ export default function Documentation({ scrollTo, setScrollTo }) {
         }
     }, [handleScroll])
 
+    React.useEffect(() => {
+        if (scrollTo) {
+            const div = document.getElementById('makeYourFirstAnnotation')
+            div?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+                inline: 'center',
+            })
+            setScrollTo(false)
+        }
+    }, [scrollTo, setScrollTo])
+
     const initViewports = () => {
         let newViewports = new Map()
         sectionIds.forEach((sec) => {
@@ -53,18 +65,6 @@ export default function Documentation({ scrollTo, setScrollTo }) {
         const rect = el.getBoundingClientRect()
         return rect.bottom >= 0 && rect.top <= pos
     }
-
-    React.useEffect(() => {
-        if (scrollTo) {
-            const div = document.getElementById('makeYourFirstAnnotation')
-            div?.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start',
-                inline: 'center',
-            })
-            setScrollTo(false)
-        }
-    }, [scrollTo, setScrollTo])
 
     return (
         <div className="relative bg-white">
