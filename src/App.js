@@ -1,5 +1,3 @@
-/* This example requires Tailwind CSS v2.0+ */
-
 import './App.css'
 
 import Hero from './components/hero'
