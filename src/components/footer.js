@@ -65,9 +65,19 @@ export default function Footer({ setViewing, viewing }) {
                 <li>
                     <a
                         href="mailto:ahorvath@andrew.cmu.edu"
-                        className="hover:underline"
+                        className="mr-4 hover:underline md:mr-6"
                     >
                         Contact
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://forms.gle/Q2BSeAreCBAeGa29A"
+                        target={'_blank'}
+                        rel="noreferrer"
+                        className="hover:underline"
+                    >
+                        Report a Bug
                     </a>
                 </li>
             </ul>

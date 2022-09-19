@@ -219,7 +219,7 @@ function GetStarted({ setViewing }) {
                         )
                     })}
                 </ul>
-                <div className="lg:text-center">
+                <div className="lg:text-center font-medium lg:text-xl sm:text-4xl">
                     <h1 className="mt-2 font-bold leading-8 tracking-tight text-gray-800 lg:text-2xl sm:text-4xl">
                         Congratulations, you now have Catseye installed! Learn
                         how to make your first Catseye annotation{' '}
@@ -235,6 +235,16 @@ function GetStarted({ setViewing }) {
                         </button>
                         .
                     </h1>
+                    Also,{' '}
+                    <a
+                        className="text-green-500 hover:text-green-400 hover:underline"
+                        href="https://join.slack.com/t/adamite/shared_invite/zt-1elrbmyrb-oAdtxtFi2cSuH26ssPe~6Q"
+                        target={'_blank'}
+                        rel="noreferrer"
+                    >
+                        please join our Slack
+                    </a>
+                    !
                 </div>
             </div>
         </div>

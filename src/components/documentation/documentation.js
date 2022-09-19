@@ -74,7 +74,7 @@ export default function Documentation({ scrollTo, setScrollTo }) {
             <div className="mx-auto flex max-w-screen-2xl">
                 <SideNavigationBar navInView={navInView} />
                 <div className="relative flex z-10 pb-8 sm:pb-16 md:pb-20 lg:w-full lg:pb-28 xl:pb-32">
-                    <main className="mx-auto mt-4 w-4/5">
+                    <main className="mx-auto mt-4">
                         <div className="lg:text-center p-4">
                             <h2 className="text-lg font-semibold text-lime-600">
                                 Documentation
