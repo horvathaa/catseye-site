@@ -54,7 +54,7 @@ export default function Footer({ setViewing, viewing }) {
                 </li>
                 <li>
                     <a
-                        href="https://forms.gle/BgKWhzLqxzp4zvmZ8"
+                        href="./cmu-irb-consent-jan-24-no-comp-vscode.pdf"
                         target={'_blank'}
                         rel="noreferrer"
                         className="mr-4 hover:underline md:mr-6"
