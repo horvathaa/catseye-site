@@ -10,9 +10,8 @@ const teammates = [
         role: 'Lead Researcher, Developer, and Designer',
         description:
             '5th year Ph.D. student in the Human-Computer Interaction Institute at Carnegie Mellon University. Leading this project as part of her doctoral thesis work.',
-        // price: '$48',
         className: 'thumbnail portrait',
-        imageSrc: 'https://horvathaa.github.io/public/amber.jpg',
+        imageSrc: 'https://www.amberhorvath.com/resources/amber.jpeg',
         imageAlt:
             'Picture of Amber Horvath, Ph.D. student at Carnegie Mellon University',
     },
@@ -23,7 +22,6 @@ const teammates = [
         role: 'Professor, Advisor',
         description:
             'Professor in the Human-Computer Interaction Institute in the School of Computer Science at Carnegie Mellon University. Oversees the research and development of Catseye.',
-        // price: '$35',
         className: 'thumbnail portrait',
         imageSrc: 'https://www.cs.cmu.edu/~bam/myers_brad_2015_head_small.jpg',
         imageAlt:
@@ -51,7 +49,6 @@ const teammates = [
                 .
             </>
         ),
-        // price: '$89',
         imageSrc: 'http://www.matthewshu.com/assets/matthew_shu_headshot.png',
 
         imageAlt: 'Picture of Matthew Shu, undergraduate at Yale University',
@@ -77,7 +74,6 @@ const teammates = [
                 .
             </>
         ),
-        // price: '$35',
         className: 'thumbnail portrait',
         imageSrc: 'https://avatars.githubusercontent.com/u/63089231?v=4',
         imageAlt:
@@ -89,14 +85,12 @@ const teammates = [
         href: 'https://www.linkedin.com/in/andrew-macvean-5b948b2b/',
         role: 'Advisor',
         description: 'Consults on the research and development of Catseye.',
-        // price: '$35',
         className: 'thumbnail portrait',
         imageSrc:
             'https://media-exp1.licdn.com/dms/image/C5603AQFTaChjvNag2w/profile-displayphoto-shrink_800_800/0/1517619642171?e=1668643200&v=beta&t=1HfzVvUJ0NqMkg6dVfX7AJIc4fb907xtCx6BGdBcm2k',
         imageAlt:
             'Picture of Andrew Macvean, Staff User Experience Researcher at Google',
     },
-    // More products...
 ]
 
 const formerTeammates = [
@@ -104,7 +98,6 @@ const formerTeammates = [
         id: 0,
         name: 'Imtiaz Rahman',
         href: 'https://www.linkedin.com/in/imtiaz-rahman-835237169/',
-        // price: '$35',
         className: 'thumbnail portrait',
         role: 'Developer',
         description: (
